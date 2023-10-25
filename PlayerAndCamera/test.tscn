@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://capf2303mmn0i"]
+
+[ext_resource type="PackedScene" uid="uid://ca7bw03v8w6c8" path="res://ParallaxScrolling/parallax_scroll.tscn" id="1_w11nw"]
+[ext_resource type="PackedScene" uid="uid://dexkm05ti847r" path="res://PlayerAndCamera/player.tscn" id="3_4iroo"]
+[ext_resource type="PackedScene" uid="uid://bvf1vjhqi8p2" path="res://PlayerAndCamera/camera.tscn" id="3_8rphe"]
+
+[node name="Test" type="Node2D"]
+
+[node name="ParallaxScroll" parent="." instance=ExtResource("1_w11nw")]
+
+[node name="Player" parent="." instance=ExtResource("3_4iroo")]
+position = Vector2(35, 0)
+
+[node name="Camera2D" parent="." instance=ExtResource("3_8rphe")]
+position = Vector2(35, 0)

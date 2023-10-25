@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dexkm05ti847r"]
+
+[ext_resource type="Script" path="res://PlayerAndCamera/player.cs" id="1_dvfjo"]
+[ext_resource type="Texture2D" uid="uid://3k003uom6x5t" path="res://PlayerAndCamera/SpaceMan-Sheet.png" id="1_ssnom"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tht01"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_dvfjo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ssnom")
+hframes = 3
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tht01")
+
+[node name="PlayerSettings" type="Node" parent="."]
+_import_path = -1
+unique_name_in_owner = -1
+process_mode = -1
+process_priority = -1
+process_physics_priority = -1
+process_thread_group = -1
+editor_description = -1
+script = -1
+Settings/GameType = 0
+Settings/RotationType = 0

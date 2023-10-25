@@ -1,0 +1,8 @@
+res://PlayerAndCamera/player.tscn
+res://ParallaxScrolling/ParallaxScroll.cs
+res://PlayerAndCamera/FollowPlayer.cs
+res://PlayerAndCamera/player.cs
+res://PlayerAndCamera/PlayerSettings.cs
+res://ProceduralGeneration/MapGenerator.cs
+res://ProceduralGeneration/ProceduralTilemap.cs
+res://PlayerAndCamera/test.tscn

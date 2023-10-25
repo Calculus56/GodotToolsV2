@@ -1,0 +1,3 @@
+The input map is stored in project.godot under [input]
+You copy and paste those settings from one project.godot to another.
+You then close and reopen the project.

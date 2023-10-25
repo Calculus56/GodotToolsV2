@@ -1,0 +1,17 @@
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\bin\Debug\GodotToolsV2.deps.json
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\bin\Debug\GodotToolsV2.runtimeconfig.json
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\bin\Debug\GodotToolsV2.dll
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\bin\Debug\GodotToolsV2.pdb
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.csproj.AssemblyReference.cache
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.AssemblyInfoInputs.cache
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.AssemblyInfo.cs
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.csproj.CoreCompileInputs.cache
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.csproj.CopyComplete
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.dll
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\refint\GodotToolsV2.dll
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.pdb
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\GodotToolsV2.genruntimeconfig.cache
+D:\Godot\GitProjects\GodotToolsV2\.godot\mono\temp\obj\Debug\ref\GodotToolsV2.dll

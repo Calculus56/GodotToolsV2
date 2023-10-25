@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca7bw03v8w6c8"]
+
+[ext_resource type="Script" path="res://ParallaxScrolling/ParallaxScroll.cs" id="1_u70r2"]
+[ext_resource type="Texture2D" uid="uid://dddma6ot1ne5r" path="res://ParallaxScrolling/BoatAndOcean-Sheet.png" id="2_gb8bh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cy0h"]
+atlas = ExtResource("2_gb8bh")
+region = Rect2(232, 112, 192, 16)
+
+[node name="ParallaxScroll" type="Node2D"]
+script = ExtResource("1_u70r2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0cy0h")
