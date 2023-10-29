@@ -19,13 +19,16 @@ public partial class ParallaxScroll : Node2D
 
 	List<Sprite2D> backgrounds = new List<Sprite2D>();
 
+
 	public override void _Ready()
 	{
+		// Gets all background sprites below the node connected to the script.
 		var temp = GetChildren();
+		// Gets the Height and Width of the screen.
+		var camera = GetViewportRect().Size;
 		// Formats the children into an array then adds them to an array after
 		// converting the type.
 		Array.ForEach(temp.ToArray(), item => backgrounds.Add(item as Sprite2D));
-
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

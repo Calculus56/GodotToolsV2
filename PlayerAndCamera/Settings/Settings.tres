@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerSettings" load_steps=2 format=3 uid="uid://dvctix88wwybb"]
+
+[ext_resource type="Script" path="res://PlayerAndCamera/PlayerSettings.cs" id="1_xbxjx"]
+
+[resource]
+script = ExtResource("1_xbxjx")
+Settings/GameType = 0
+Settings/RotationType = 0
+Input/InputType = 0

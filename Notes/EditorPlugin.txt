@@ -1,0 +1,2 @@
+When closing and opening Godot, the editor plugin doesn't work as expected.
+Deleting then adding the script back fixes it.
