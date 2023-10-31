@@ -1,28 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://capf2303mmn0i"]
+[gd_scene load_steps=8 format=3 uid="uid://capf2303mmn0i"]
 
-[ext_resource type="PackedScene" uid="uid://ca7bw03v8w6c8" path="res://ParallaxScrolling/parallax_scroll.tscn" id="1_w11nw"]
+[ext_resource type="PackedScene" uid="uid://5egls5d30uyk" path="res://ParallaxScrolling/parallax_scroll.tscn" id="1_w11nw"]
 [ext_resource type="PackedScene" uid="uid://dexkm05ti847r" path="res://PlayerAndCamera/player.tscn" id="3_4iroo"]
 [ext_resource type="PackedScene" uid="uid://bvf1vjhqi8p2" path="res://PlayerAndCamera/camera.tscn" id="3_8rphe"]
-[ext_resource type="Texture2D" uid="uid://dfglgd83c3506" path="res://icon.svg" id="4_byn80"]
+[ext_resource type="Texture2D" uid="uid://dddma6ot1ne5r" path="res://ParallaxScrolling/BoatAndOcean-Sheet.png" id="4_jvbvw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_woosd"]
-size = Vector2(661, 145)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttkff"]
+atlas = ExtResource("4_jvbvw")
+region = Rect2(32, 290, 168, 83)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_il88a"]
+a = Vector2(-87, -13.375)
+b = Vector2(48.5, -14.875)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n1uw8"]
+a = Vector2(49, -16.375)
+b = Vector2(79, -30.875)
 
 [node name="Test" type="Node2D"]
 
 [node name="ParallaxScroll" parent="." instance=ExtResource("1_w11nw")]
 
-[node name="Camera2D" parent="." instance=ExtResource("3_8rphe")]
-position = Vector2(35, 0)
+[node name="MainCamera" parent="." instance=ExtResource("3_8rphe")]
+position = Vector2(0, -197)
+onBoat = true
 
 [node name="Player" parent="." instance=ExtResource("3_4iroo")]
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-7, 97)
+position = Vector2(4, 10)
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
-scale = Vector2(5.17188, 1.13281)
-texture = ExtResource("4_byn80")
+texture = SubResource("AtlasTexture_ttkff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("RectangleShape2D_woosd")
+position = Vector2(4, 23.375)
+shape = SubResource("SegmentShape2D_il88a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(4, 23.375)
+shape = SubResource("SegmentShape2D_n1uw8")

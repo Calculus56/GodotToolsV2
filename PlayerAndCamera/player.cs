@@ -44,7 +44,6 @@ public partial class Player : CharacterBody2D
 		///		Controller, Keyboard
 		switch(playerSettings.gameType){
 			case PlayerSettings.GameType.SideScroller:
-				GD.Print("Sidescroller");
 				// Add the gravity.
 				if (!IsOnFloor())
 					velocity.Y += gravity * (float)delta;
@@ -55,6 +54,7 @@ public partial class Player : CharacterBody2D
 				
 				Movement();
 				velocity.X = direction.X * Speed;
+				Velocity = velocity;
 				break;
 			case PlayerSettings.GameType.TopDown:
 				switch(playerSettings.rotationType){

@@ -1,5 +1,8 @@
-res://PlayerAndCamera/player.tscn
+res://PlayerAndCamera/test.tscn
 res://PlayerAndCamera/Settings/Settings.tres
+res://PlayerAndCamera/player.tscn
+res://UI/main_menu.tscn
+res://UI/EditorPlugin.tscn
 res://addons/SettingsEditor/SettingsEditor.cs
 res://ParallaxScrolling/ParallaxScroll.cs
 res://PlayerAndCamera/FollowPlayer.cs
@@ -7,7 +10,6 @@ res://PlayerAndCamera/Player.cs
 res://PlayerAndCamera/PlayerSettings.cs
 res://ProceduralGeneration/MapGenerator.cs
 res://ProceduralGeneration/ProceduralTilemap.cs
-res://PlayerAndCamera/test.tscn
-res://PlayerAndCamera/camera.tscn
-res://UI/main_menu.tscn
-res://UI/EditorPlugin.tscn
+res://ParallaxScrolling/parallax_scroll.tscn
+res://ParallaxScrolling/GoToPlayer.cs
+res://ParallaxScrolling/BackgroundNode.cs

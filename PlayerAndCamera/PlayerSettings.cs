@@ -44,7 +44,7 @@ public partial class PlayerSettings : Resource
 
 	public RotationType rotationType { get; set; }
 
-	PackedScene editorAddon = GD.Load<PackedScene>("res://PlayerAndCamera/EditorPlugin.tscn");
+	//PackedScene editorAddon = GD.Load<PackedScene>("res://PlayerAndCamera/EditorPlugin.tscn");
 	// A try at EdiotrPlugins see notes for more.
 	//#region
     // Control dockedScene;
