@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_xbxjx")
-Settings/GameType = 1
+Settings/GameType = 0
+Settings/RotationType = 0
 Input/InputType = 0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci2qrylfvp1qk"]
+
+[ext_resource type="Texture2D" uid="uid://dddma6ot1ne5r" path="res://ParallaxScrolling/BoatAndOcean-Sheet.png" id="1_hxfxd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhdwc"]
+atlas = ExtResource("1_hxfxd")
+region = Rect2(0, 0, 228, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38weu"]
+atlas = ExtResource("1_hxfxd")
+region = Rect2(228, 0, 228, 128)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(228, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+texture = SubResource("AtlasTexture_bhdwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = SubResource("AtlasTexture_38weu")

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 // PLace this on a 
-public partial class ParallaxScroll : Node2D
+public partial class ParallaxScroll : Sprite2D
 {
 	// Works by having Sprite2D children.
 	
@@ -22,13 +22,15 @@ public partial class ParallaxScroll : Node2D
 	[Export] Vector2 parallaxEffectMultiplier = new Vector2(1, 1);
 	[Export] bool isRepeated;
 	// Change the x and y based on the size of the sprite that covers the whole screen.
-	Vector2 spriteSize = new Vector2(228, 128);
+	Vector2 spriteSize = new Vector2(192, 128);
 
 	List<Sprite2D> backgrounds = new List<Sprite2D>();
 	Node2D parent;
 	Camera2D camera;
-	Vector2 lastCameraPos, basePos, scale;
+	Vector2 startPos, lastCameraPos, basePos, scale, addedPos;
 	Window windowBounds;
+	// multiplier needs to be tested to see what works.
+	float length, multiplier = 0.59f;
 
 	Node2D GetRoot(){
 		return GetTree().Root.GetChild(0) as Node2D;
@@ -36,13 +38,16 @@ public partial class ParallaxScroll : Node2D
 
 	public override void _Ready()
 	{
+		startPos = Position;
+		windowBounds = GetWindow();
+		
+		scale = windowBounds.Size / spriteSize;
+		length = spriteSize.X * scale.X;
 		parent = GetParent<Node2D>();
 		camera = GetRoot().GetNode<Camera2D>("MainCamera");
 		lastCameraPos = camera.Position;
 		// Gets all background sprites below the node connected to the script.
 		// var temp = GetChildren();
-		// Gets the Height and Width of the screen.
-		windowBounds = GetWindow();
 
 		// Formats the children into an array then adds them to an array after
 		// converting the type.
@@ -52,12 +57,20 @@ public partial class ParallaxScroll : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		scale = windowBounds.Size / spriteSize;
+		//scale = windowBounds.Size / spriteSize;
 		Vector2 deltaMovement = camera.Position - lastCameraPos;
-		Position += new Vector2{
+		addedPos += new Vector2{
 			X = deltaMovement.X * parallaxEffectMultiplier.X / scale.X, 
 			Y = deltaMovement.Y * parallaxEffectMultiplier.Y / scale.Y,
 		};
+		Position = startPos;
 		lastCameraPos = camera.Position;
+		// If the camera position is greater than the background position it 
+		if(isRepeated){
+			// When you scale up, the position needs to scale.
+			if(camera.GlobalPosition.X - Position.X * scale.X > length) startPos.X += length * multiplier;
+			GD.Print($"{Position.X * scale.X - camera.GlobalPosition.X} {length}");
+			//else if(camera.GlobalPosition.X + length < GlobalPosition.X) startPos.X -= length;
+		}
 	}
 }

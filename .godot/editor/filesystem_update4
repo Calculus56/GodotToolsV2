@@ -13,3 +13,4 @@ res://ProceduralGeneration/ProceduralTilemap.cs
 res://ParallaxScrolling/parallax_scroll.tscn
 res://ParallaxScrolling/GoToPlayer.cs
 res://ParallaxScrolling/BackgroundNode.cs
+res://ParallaxScrolling/parallax_background.tscn
