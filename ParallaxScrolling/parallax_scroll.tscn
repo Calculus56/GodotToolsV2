@@ -72,11 +72,28 @@ script = ExtResource("1_u70r2")
 parallaxEffectMultiplier = Vector2(0.3, 1)
 isRepeated = true
 
-[node name="MiddleWaves" type="Sprite2D" parent="."]
-position = Vector2(-0.2, 36)
+[node name="MiddleWaves" type="Node2D" parent="."]
+
+[node name="MiddleWaves" type="Sprite2D" parent="MiddleWaves"]
+position = Vector2(-228, 36)
 texture = SubResource("AtlasTexture_3xpj1")
 script = ExtResource("1_u70r2")
 parallaxEffectMultiplier = Vector2(0.6, 1)
+isRepeated = true
+
+[node name="MiddleWaves2" type="Sprite2D" parent="MiddleWaves"]
+position = Vector2(0, 36)
+texture = SubResource("AtlasTexture_3xpj1")
+script = ExtResource("1_u70r2")
+parallaxEffectMultiplier = Vector2(0.6, 1)
+isRepeated = true
+
+[node name="MiddleWaves3" type="Sprite2D" parent="MiddleWaves"]
+position = Vector2(228, 36)
+texture = SubResource("AtlasTexture_3xpj1")
+script = ExtResource("1_u70r2")
+parallaxEffectMultiplier = Vector2(0.6, 1)
+isRepeated = true
 
 [node name="BackWaves" type="Sprite2D" parent="."]
 position = Vector2(1.66667, 23)

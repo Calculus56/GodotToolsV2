@@ -20,7 +20,6 @@ b = Vector2(79, -30.875)
 [node name="Test" type="Node2D"]
 
 [node name="MainCamera" parent="." instance=ExtResource("3_8rphe")]
-onBoat = true
 
 [node name="ParallaxScroll" parent="." instance=ExtResource("1_w11nw")]
 

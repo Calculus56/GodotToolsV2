@@ -14,6 +14,6 @@ public partial class FollowPlayer : Camera2D
 	public override void _Process(double delta)
 	{
 		if(onBoat) modifier = new Vector2(0, -200);
-		GlobalPosition = player.GlobalPosition + modifier;
+		GlobalPosition = GlobalPosition.Lerp(player.GlobalPosition + modifier, 0.5f);
 	}
 }

@@ -18,11 +18,11 @@ public partial class ParallaxScroll : Sprite2D
 	// the higher the value the closer it is. 1 will mean it moves with the player
 	// or doesn't have any drag.
 
-	// Need to add a mask to the background so waves disappear.
+	// Keep the aspect of the canvas items in the Project Settings.
 	[Export] Vector2 parallaxEffectMultiplier = new Vector2(1, 1);
 	[Export] bool isRepeated;
 	// Change the x and y based on the size of the sprite that covers the whole screen.
-	Vector2 spriteSize = new Vector2(192, 128);
+	Vector2 spriteSize = new Vector2(228, 128);
 
 	List<Sprite2D> backgrounds = new List<Sprite2D>();
 	Node2D parent;
@@ -60,17 +60,18 @@ public partial class ParallaxScroll : Sprite2D
 		//scale = windowBounds.Size / spriteSize;
 		Vector2 deltaMovement = camera.Position - lastCameraPos;
 		addedPos += new Vector2{
-			X = deltaMovement.X * parallaxEffectMultiplier.X / scale.X, 
+			X = deltaMovement.X * parallaxEffectMultiplier.X / scale.Y, 
 			Y = deltaMovement.Y * parallaxEffectMultiplier.Y / scale.Y,
 		};
-		Position = startPos;
+		Position = startPos + addedPos;
 		lastCameraPos = camera.Position;
 		// If the camera position is greater than the background position it 
 		if(isRepeated){
-			// When you scale up, the position needs to scale.
-			if(camera.GlobalPosition.X - Position.X * scale.X > length) startPos.X += length * multiplier;
-			GD.Print($"{Position.X * scale.X - camera.GlobalPosition.X} {length}");
-			//else if(camera.GlobalPosition.X + length < GlobalPosition.X) startPos.X -= length;
+			// When you scale up, GlobalPosition is important because the position moves by the scale.
+			// We multiplay by 3 because that's the amount of sprites(including itself) it has to move past.
+			if(GlobalPosition.X < camera.GlobalPosition.X - length) startPos.X += spriteSize.X * 3;
+			else if(GlobalPosition.X > camera.GlobalPosition.X + length) startPos.X -= spriteSize.X * 3;
+			//GD.Print($"{GlobalPosition.X} {camera.GlobalPosition.X - length}");
 		}
 	}
 }

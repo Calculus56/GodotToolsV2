@@ -14,7 +14,7 @@ public partial class BackgroundNode : Node2D
 	public override void _Ready()
 	{
 		windowBounds = GetWindow();
-		windowBounds.SizeChanged += UpdateScale; 
+		//windowBounds.SizeChanged += UpdateScale; 
 		camera = GetRoot().GetNode<Camera2D>("MainCamera");
 		// Sets the background initial position to the camera.
 		Position = camera.Position;
