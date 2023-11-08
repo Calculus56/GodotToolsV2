@@ -1,9 +1,11 @@
-Node2D
+ColorRect
+Polygon2D
+Camera2D
 Sprite2D
+Node2D
 ParallaxLayer
 ParallaxBackground
 Line2D
-Camera2D
 VBoxContainer
 MarginContainer
 Label

@@ -1,8 +1,8 @@
 res://PlayerAndCamera/test.tscn
 res://PlayerAndCamera/Settings/Settings.tres
 res://PlayerAndCamera/player.tscn
-res://UI/main_menu.tscn
-res://ParallaxScrolling/parallax_scroll.tscn
+res://Spring/water_spring.tscn
+res://Spring/water_body.tscn
 res://addons/SettingsEditor/SettingsEditor.cs
 res://ParallaxScrolling/BackgroundNode.cs
 res://ParallaxScrolling/ParallaxScroll.cs
@@ -11,3 +11,6 @@ res://PlayerAndCamera/Player.cs
 res://PlayerAndCamera/PlayerSettings.cs
 res://ProceduralGeneration/MapGenerator.cs
 res://ProceduralGeneration/ProceduralTilemap.cs
+res://Spring/water_body.cs
+res://Spring/water_spring.cs
+res://Spring/water_body.gdshader
