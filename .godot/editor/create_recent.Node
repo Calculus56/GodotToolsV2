@@ -1,7 +1,12 @@
+CharacterBody2D
+CollisionShape2D
+Sprite2D
+RigidBody2D
+Area2D
+Path2D
 ColorRect
 Polygon2D
 Camera2D
-Sprite2D
 Node2D
 ParallaxLayer
 ParallaxBackground
@@ -12,6 +17,5 @@ Label
 OptionButton
 Control
 StaticBody2D
-CollisionShape2D
 HBoxContainer
 Node

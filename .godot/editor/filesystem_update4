@@ -1,8 +1,10 @@
 res://PlayerAndCamera/test.tscn
 res://PlayerAndCamera/Settings/Settings.tres
+res://WaterPhysics/water_body.gdshader
 res://PlayerAndCamera/player.tscn
-res://Spring/water_spring.tscn
-res://Spring/water_body.tscn
+res://WaterPhysics/water_body.tscn
+res://WaterPhysics/water_spring.tscn
+res://WaterPhysics/rock.tscn
 res://addons/SettingsEditor/SettingsEditor.cs
 res://ParallaxScrolling/BackgroundNode.cs
 res://ParallaxScrolling/ParallaxScroll.cs
@@ -11,6 +13,8 @@ res://PlayerAndCamera/Player.cs
 res://PlayerAndCamera/PlayerSettings.cs
 res://ProceduralGeneration/MapGenerator.cs
 res://ProceduralGeneration/ProceduralTilemap.cs
-res://Spring/water_body.cs
-res://Spring/water_spring.cs
-res://Spring/water_body.gdshader
+res://WaterPhysics/RedrawPolygon.cs
+res://WaterPhysics/Rock.cs
+res://WaterPhysics/smooth_path.cs
+res://WaterPhysics/water_body.cs
+res://WaterPhysics/water_spring.cs

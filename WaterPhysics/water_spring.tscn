@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0tt3n0op5ntn"]
+
+[ext_resource type="Script" path="res://WaterPhysics/water_spring.cs" id="1_sqe4r"]
+[ext_resource type="Texture2D" uid="uid://bqssfud6ilp42" path="res://WaterPhysics/TomeProj.png" id="2_ew4j5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lha7b"]
+size = Vector2(0, 20)
+
+[node name="WaterSpring" type="Node2D"]
+visible = false
+script = ExtResource("1_sqe4r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ew4j5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lha7b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

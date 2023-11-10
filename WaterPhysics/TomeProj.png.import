@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqssfud6ilp42"
-path="res://.godot/imported/TomeProj.png-ead5b8f9105b33516256937f69cc3406.ctex"
+path="res://.godot/imported/TomeProj.png-a7360154929c57e6c400e07f8fe6c3ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spring/TomeProj.png"
-dest_files=["res://.godot/imported/TomeProj.png-ead5b8f9105b33516256937f69cc3406.ctex"]
+source_file="res://WaterPhysics/TomeProj.png"
+dest_files=["res://.godot/imported/TomeProj.png-a7360154929c57e6c400e07f8fe6c3ba.ctex"]
 
 [params]
 

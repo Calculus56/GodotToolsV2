@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpht274wa4ta4"]
+
+[ext_resource type="Script" path="res://WaterPhysics/water_body.cs" id="1_nc7qd"]
+[ext_resource type="PackedScene" uid="uid://c0tt3n0op5ntn" path="res://WaterPhysics/water_spring.tscn" id="2_4ryiq"]
+[ext_resource type="Shader" path="res://WaterPhysics/water_body.gdshader" id="3_wtk1u"]
+[ext_resource type="Script" path="res://WaterPhysics/smooth_path.cs" id="4_723wn"]
+[ext_resource type="Curve2D" uid="uid://bw3vx2aibtq1b" path="res://WaterPhysics/water_body.tres" id="5_e2t1y"]
+[ext_resource type="PackedScene" uid="uid://ff371c80oh7x" path="res://WaterPhysics/rock.tscn" id="5_vv03f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c02xw"]
+shader = ExtResource("3_wtk1u")
+shader_parameter/tint = Color(0, 0.666667, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iab60"]
+shader = ExtResource("3_wtk1u")
+shader_parameter/tint = Color(0, 0.564706, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u5ka4"]
+shader = ExtResource("3_wtk1u")
+shader_parameter/tint = Color(0, 0.564706, 1, 1)
+
+[node name="WaterBody" type="Node2D"]
+script = ExtResource("1_nc7qd")
+k = 0.007
+d = 0.05
+spread = 0.003
+distanceBetweenSprings = 64
+springNumber = 40
+waterPoint = ExtResource("2_4ryiq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Water_Polygon" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_c02xw")
+
+[node name="ToTestTheShader" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_iab60")
+offset_left = 319.0
+offset_top = -80.0
+offset_right = 359.0
+offset_bottom = -40.0
+scale = Vector2(1.52, 1.52)
+
+[node name="Water_Border" type="Path2D" parent="."]
+material = SubResource("ShaderMaterial_u5ka4")
+curve = ExtResource("5_e2t1y")
+script = ExtResource("4_723wn")
+curve = ExtResource("5_e2t1y")
+spline_length = 31
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_vv03f")]
+position = Vector2(-66, -270)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("5_vv03f")]
+position = Vector2(337, -380)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("5_vv03f")]
+position = Vector2(102, -668)
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("5_vv03f")]
+position = Vector2(-376, -430)
