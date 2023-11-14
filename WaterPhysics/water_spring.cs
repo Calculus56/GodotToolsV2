@@ -45,14 +45,16 @@ public partial class water_spring : Node2D
 	// X needs to be 0 at the start.
 	public void set_collsion_shape(int value){
 		var extents = collsion.Shape.GetRect().Size;
-		var new_extents = new Vector2(value/2, extents.Y);
-		GD.Print($"{new_extents.X} {new_extents.Y}");
+		var new_extents = new Vector2(value, extents.Y);
+		// GD.Print($"{new_extents.X} {new_extents.Y}");
 		(collsion.Shape as RectangleShape2D).Size = new_extents;
 	}
 
 	void _on_area_2d_body_entered(Node body){
 		if(body == collided_with) return;
 		collided_with = body;
+		// Calculates the speed based on the y velocity.
+		// But what if a player was running on the water or surfacing from the bottom.
 		var speed = (body as CharacterBody2D).Velocity.Y * motion_factor;
 		EmitSignal("splash", index, speed);
 	}

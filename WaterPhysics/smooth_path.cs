@@ -7,8 +7,7 @@ using System.Linq;
 public partial class smooth_path : Path2D
 {	
 	[Export] public Curve2D curve;
-	// Splinelength needs to be half of the length between points minus one, if the points overlap then
-	// the triangulation of the polygon will fail and it will start stuttering.
+	// If you put points to close together it will flicker, 
 	// Most likely it's the edges being hit.
 	[Export] int spline_length = 100;
 	public float width = 10;
@@ -69,7 +68,7 @@ public partial class smooth_path : Path2D
 
 	public override void _Draw(){
 		var points = curve.GetBakedPoints();
-		GD.Print("Points " + points.Count());
+		//GD.Print("Points " + points.Count());
 		//Color[] color = Enumerable.Repeat(Colors.Black, points.Length).ToArray();
 		if(points != null){
 			DrawPolyline(points, Colors.Aqua, width, true);

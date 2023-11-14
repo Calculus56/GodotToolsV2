@@ -49,8 +49,13 @@ script = ExtResource("4_723wn")
 curve = ExtResource("5_e2t1y")
 spline_length = 31
 
+[node name="waterBodyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="waterBodyArea"]
+debug_color = Color(0.952941, 0, 0.54902, 0.419608)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_vv03f")]
-position = Vector2(-66, -270)
+position = Vector2(-87, -270)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("5_vv03f")]
 position = Vector2(337, -380)
@@ -60,3 +65,5 @@ position = Vector2(102, -668)
 
 [node name="CharacterBody2D4" parent="." instance=ExtResource("5_vv03f")]
 position = Vector2(-376, -430)
+
+[connection signal="body_entered" from="waterBodyArea" to="." method="_on_water_body_area_body_entered"]
