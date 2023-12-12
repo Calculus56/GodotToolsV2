@@ -9,7 +9,11 @@ public partial class MapGenerator : Node2D
 	//LoadingHandler loadingHandler;
 	[Export]
 	public int sizeX, sizeY;
-	int width, height, neighbourTiles = 5;
+	// Every time 50 is doubled it will take 4 times as long. To counter this make
+	// the size smaller.
+	[Export]
+	int width = 50, height = 50;
+	int neighbourTiles = 5;
 	int startingWidth, startingHeight;
 	int[,] chunks;
 	int chunkX = 0, chunkY = 0;
@@ -36,11 +40,16 @@ public partial class MapGenerator : Node2D
 	public override void _Ready() {
 		tilemapVisualizer = GetParent<ProceduralTilemap>();
 		//loadingHandler = FindAnyObjectByType<LoadingHandler>();
-		width = 50; height = 50;
 		startingWidth = width; startingHeight = height;
 		newArrX = new int[width * 2, height];
 		newArrY = new int[width, height * 2];
-		GenerateMap();
+		//GenerateMap();
+	}
+
+	void Reset(){
+		startingWidth = width; startingHeight = height;
+		newArrX = new int[width * 2, height];
+		newArrY = new int[width, height * 2];
 	}
 	// Godot 1:08 500 * 5000
 	// Unity 2:15 500 * 5000 (10,000,000)
@@ -50,7 +59,7 @@ public partial class MapGenerator : Node2D
 	// 1:31 25*25
 	public void GenerateMap() {
 		//map = new int[width, height];
-		
+		Reset();
 		// 25*25 1 minute
 		// 100*100 2 minutes
 		layerMaps = new List<List<int[,]>>();
@@ -85,6 +94,9 @@ public partial class MapGenerator : Node2D
 		}
 
 		ConnectMaps();
+		width = startingWidth;
+		height = startingHeight;
+
 		//StartCoroutine(ConnectMaps());
 		// Save to txt file
 		//yield return new WaitForEndOfFrame();

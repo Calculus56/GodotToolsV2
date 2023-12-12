@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://c04ddyejmjlxy"]
+
+[ext_resource type="PackedScene" uid="uid://fbui3tb4ljlq" path="res://Particles_Shaders/Firework.tscn" id="1_dvj7g"]
+[ext_resource type="PackedScene" uid="uid://xqamsyituk4h" path="res://Particles_Shaders/Firework2.tscn" id="2_3pjua"]
+[ext_resource type="PackedScene" uid="uid://0e08t8i8q3t0" path="res://Particles_Shaders/AnimationParticle.tscn" id="3_jm7bl"]
+[ext_resource type="PackedScene" uid="uid://glf3p30b74a0" path="res://Particles_Shaders/Implosion.tscn" id="4_e8eco"]
+[ext_resource type="PackedScene" uid="uid://4mt7i6gxmytd" path="res://Particles_Shaders/ExplodingSprites.tscn" id="5_48fem"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Firework" parent="." instance=ExtResource("1_dvj7g")]
+
+[node name="Firework2" parent="." instance=ExtResource("2_3pjua")]
+
+[node name="AnimationParticle" parent="." instance=ExtResource("3_jm7bl")]
+
+[node name="Implosion" parent="." instance=ExtResource("4_e8eco")]
+
+[node name="ExplodingSprites" parent="." instance=ExtResource("5_48fem")]
+position = Vector2(996, -67)

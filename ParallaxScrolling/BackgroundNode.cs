@@ -6,7 +6,8 @@ public partial class BackgroundNode : Node2D
 	Camera2D camera;
 	Vector2 spriteSize = new Vector2(228, 128), scale;
 	Node2D GetRoot(){
-		return GetTree().Root.GetChild(0) as Node2D;
+		// IF you have an autoload script, root will not work, so it's better to use current scene.
+		return GetTree().CurrentScene.GetChild(0) as Node2D;
 	}
 	Window windowBounds;
 
@@ -15,7 +16,8 @@ public partial class BackgroundNode : Node2D
 	{
 		windowBounds = GetWindow();
 		//windowBounds.SizeChanged += UpdateScale; 
-		camera = GetRoot().GetNode<Camera2D>("MainCamera");
+		GD.Print(GetRoot());
+		camera = GetTree().Root.GetCamera2D();
 		// Sets the background initial position to the camera.
 		Position = camera.Position;
 		UpdateScale();

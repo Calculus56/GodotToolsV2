@@ -46,7 +46,9 @@ public partial class ProceduralTilemap : TileMap
 
 	public override void _Notification(int what)
 	{
-		if (what == NotificationWMCloseRequest)
-			Clear();
+		// Tilemap doesn't seem to save when exiting scene, so that bug
+		// must be fixed.
+		//if (what == NotificationWMCloseRequest)
+			//ClearLayer(0);
 	}
 }

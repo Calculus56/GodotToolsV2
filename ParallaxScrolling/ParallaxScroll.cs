@@ -44,7 +44,7 @@ public partial class ParallaxScroll : Sprite2D
 		scale = windowBounds.Size / spriteSize;
 		length = spriteSize.X * scale.X;
 		parent = GetParent<Node2D>();
-		camera = GetRoot().GetNode<Camera2D>("MainCamera");
+		camera = GetTree().Root.GetCamera2D();
 		lastCameraPos = camera.Position;
 		// Gets all background sprites below the node connected to the script.
 		// var temp = GetChildren();

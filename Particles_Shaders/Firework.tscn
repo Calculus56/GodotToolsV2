@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://fbui3tb4ljlq"]
+
+[ext_resource type="Texture2D" uid="uid://cledt78w843bn" path="res://Particles_Shaders/WhiteBall.png" id="1_52c8f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mtvcx"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_qfsoj"]
+offsets = PackedFloat32Array(0, 0.0703812, 0.961877, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0, 0, 1, 1, 0.85098, 0, 1, 1, 0.85098, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_edpes"]
+gradient = SubResource("Gradient_qfsoj")
+
+[sub_resource type="Curve" id="Curve_6hbxn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uk0ik"]
+curve = SubResource("Curve_6hbxn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8gr1f"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_uk0ik")
+color_ramp = SubResource("GradientTexture1D_edpes")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="Animation" id="Animation_0kabr"]
+resource_name = "Firework"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:process_material:hue_variation_min")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_mmfwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:process_material:hue_variation_min")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6t2i"]
+_data = {
+"Firework": SubResource("Animation_0kabr"),
+"RESET": SubResource("Animation_mmfwl")
+}
+
+[node name="Firework" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_mtvcx")
+process_material = SubResource("ParticleProcessMaterial_8gr1f")
+texture = ExtResource("1_52c8f")
+lifetime = 0.5
+explosiveness = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m6t2i")
+}

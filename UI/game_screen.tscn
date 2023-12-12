@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://chqkhjkpt7x2b"]
+
+[ext_resource type="Script" path="res://UI/game_screen.cs" id="1_2grd6"]
+[ext_resource type="Texture2D" uid="uid://bd44oar51ishi" path="res://UI/Pause.png" id="1_si8mq"]
+[ext_resource type="PackedScene" uid="uid://cg4sqx2uwoubl" path="res://UI/pause_menu.tscn" id="2_00qka"]
+
+[node name="GameScreen" type="CanvasLayer"]
+script = ExtResource("1_2grd6")
+pauseScreen = ExtResource("2_00qka")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("1_si8mq")
+
+[connection signal="pressed" from="MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]

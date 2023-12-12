@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://lpucsjguasgl"]
+
+[ext_resource type="PackedScene" uid="uid://bvf1vjhqi8p2" path="res://PlayerAndCamera/camera.tscn" id="1_jwplx"]
+[ext_resource type="PackedScene" uid="uid://5egls5d30uyk" path="res://ParallaxScrolling/parallax_scroll.tscn" id="2_1fi0n"]
+[ext_resource type="PackedScene" uid="uid://dexkm05ti847r" path="res://PlayerAndCamera/player.tscn" id="3_j7tnb"]
+[ext_resource type="Texture2D" uid="uid://dddma6ot1ne5r" path="res://ParallaxScrolling/BoatAndOcean-Sheet.png" id="4_ho7d0"]
+[ext_resource type="PackedScene" uid="uid://chqkhjkpt7x2b" path="res://UI/game_screen.tscn" id="5_231ho"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttkff"]
+atlas = ExtResource("4_ho7d0")
+region = Rect2(32, 290, 168, 83)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_il88a"]
+a = Vector2(-87, -13.375)
+b = Vector2(48.5, -14.875)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n1uw8"]
+a = Vector2(49, -16.375)
+b = Vector2(79, -30.875)
+
+[node name="Test" type="Node2D"]
+
+[node name="MainCamera" parent="." instance=ExtResource("1_jwplx")]
+
+[node name="ParallaxScroll" parent="." instance=ExtResource("2_1fi0n")]
+
+[node name="Player" parent="." instance=ExtResource("3_j7tnb")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(4, 10)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+texture = SubResource("AtlasTexture_ttkff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(4, 23.375)
+shape = SubResource("SegmentShape2D_il88a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(4, 23.375)
+shape = SubResource("SegmentShape2D_n1uw8")
+
+[node name="GameScreen" parent="." instance=ExtResource("5_231ho")]

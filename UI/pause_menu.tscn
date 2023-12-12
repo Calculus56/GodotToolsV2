@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg4sqx2uwoubl"]
+
+[ext_resource type="Script" path="res://UI/pause_menu.cs" id="1_jsukc"]
+[ext_resource type="Texture2D" uid="uid://di7a4sqy6ufvv" path="res://UI/Monster_512_512.png" id="1_vkyfe"]
+[ext_resource type="Theme" uid="uid://b450ewmwbwa2e" path="res://UI/Theme/new_theme.tres" id="2_eft5t"]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_jsukc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0.470588, 0.133333, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vkyfe")
+expand_mode = 4
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="InputSelection" type="VBoxContainer" parent="Options/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Options/MarginContainer/InputSelection"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Input Type"
+
+[node name="OptionButton" type="OptionButton" parent="Options/MarginContainer/InputSelection"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+item_count = 2
+selected = 0
+popup/item_0/text = "Keyboard"
+popup/item_0/id = 0
+popup/item_1/text = "Controller"
+popup/item_1/id = 1
+
+[node name="Play_Exit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Play_Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -50.0
+offset_right = 80.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_eft5t")
+
+[node name="MarginContainer" type="MarginContainer" parent="Play_Exit/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Play_Exit/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Continue" type="Button" parent="Play_Exit/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Main Menu" type="Button" parent="Play_Exit/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Settings" type="Button" parent="Play_Exit/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+
+[connection signal="pressed" from="Play_Exit/PanelContainer/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

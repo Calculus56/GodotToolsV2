@@ -23,6 +23,7 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
     {
 		playerSettings = _playerAsset;
+		Input.JoyConnectionChanged += ConnectionChange;
 		// Get the script from Autoload scripts.
         //playerSettings = GetTree().Root.GetNode<PlayerSettings>("PlayerSettings");
 		//Node _player = _playerAsset.Instantiate();
@@ -32,7 +33,19 @@ public partial class Player : CharacterBody2D
 		// GD.Print("Script: " + GetTree().Root.GetNode<PlayerSettings>("PlayerSettings").GetScript());
     }
 
-	//If you want to add other scripts, make nodes under player.
+    private void ConnectionChange(long device, bool connected)
+    {
+        if(connected){
+			//GD.Print(Input.GetJoyName((int)device));
+			GD.Print($"Player {device + 1} Connceted");
+		}else{
+			GD.Print($"Player {device + 1} Disconnected");
+			direction = Vector2.Zero;
+		}
+    }
+
+    //If you want to add other scripts, make nodes under player.
+
     public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -124,16 +137,39 @@ public partial class Player : CharacterBody2D
 	// Keep the sprite delay when you move, it creates a sense that you're going in the diretion.
 	void Movement(){
         // If x and y are not 0 then you move faster.
-        if(Input.IsActionPressed("Up")){
-            direction.Y = -1;
-        }else if(Input.IsActionPressed("Down")){
-            direction.Y = 1;
-        }
-        if(Input.IsActionPressed("Right")){
-            direction.X = 1;
-        }else if(Input.IsActionPressed("Left")){
-            direction.X = -1;
-        }
+        
+		switch(playerSettings.inputType){
+			case PlayerSettings.InputType.Keyboard:
+				// If using keyboard controls.
+				if(Input.IsActionPressed("Up")){
+					direction.Y = -1;
+				}else if(Input.IsActionPressed("Down")){
+					direction.Y = 1;
+				}
+				if(Input.IsActionPressed("Right")){
+					direction.X = 1;
+				}else if(Input.IsActionPressed("Left")){
+					direction.X = -1;
+				}
+				//RotateObjects(GetGlobalMousePosition());
+				break;
+			case PlayerSettings.InputType.Controller:
+				//If using controller controls.
+				Vector2 joyPos = new Vector2
+				{
+					X = Input.GetActionStrength("Right") - Input.GetActionStrength("Left"),
+					// Only if topdown.
+					Y = Input.GetActionStrength("Down") - Input.GetActionStrength("Up"),
+				};
+				
+				if(playerSettings.gameType == PlayerSettings.GameType.SideScroller) 
+					joyPos.Y = 0;
+				direction.X = joyPos.X;
+				direction.Y = joyPos.Y;
+				//GD.Print(joyPos);
+				//RotateObjects(joyPos);
+				break;
+		}
     }
 
 	void RotateObjects(Vector2 pos){

@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="GodotToolsV2"
-run/main_scene="res://WaterPhysics/water_body.tscn"
+run/main_scene="res://PlayerAndCamera/test.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+
+[autoload]
+
+GameManager="*res://UI/GameManager.cs"
 
 [display]
 
@@ -21,6 +25,12 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="GodotToolsV2"
+
+[editor]
+
+naming/default_signal_callback_name="On{NodeName}{SignalName}"
+naming/default_signal_callback_to_self_name="On{SignalName}"
+naming/scene_name_casing=1
 
 [editor_plugins]
 

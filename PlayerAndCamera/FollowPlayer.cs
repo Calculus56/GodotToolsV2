@@ -11,7 +11,7 @@ public partial class FollowPlayer : Camera2D
 		player = GetTree().GetFirstNodeInGroup("player") as Node2D;
 	}
 
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		if(onBoat) modifier = new Vector2(0, -200);
 		GlobalPosition = GlobalPosition.Lerp(player.GlobalPosition + modifier, 0.5f);
